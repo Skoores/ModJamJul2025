@@ -14,5 +14,12 @@ Items: {
 			DisplayName: Galacta Knight Trophy
 			Tooltip: ""
 		}
+
+		GalactaKnightRelic: {
+			DisplayName: Galacta Knight Relic
+			Tooltip: ""
+		}
 	}
 }
+
+NPCs.GalactaKnight.DisplayName: Galacta Knight
