@@ -19,6 +19,11 @@ Items: {
 			DisplayName: Galacta Knight Relic
 			Tooltip: ""
 		}
+
+		GalacticAltar: {
+			DisplayName: Galactic Altar
+			Tooltip: ""
+		}
 	}
 }
 

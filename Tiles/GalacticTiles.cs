@@ -15,7 +15,6 @@ namespace ModJamJul2025.Tiles
             Main.tileMergeDirt[Type] = true;
 
             MinPick = 1000;
-            MineResist = 1f;
             HitSound = SoundID.Tink;
             DustType = DustID.GemSapphire;
 
