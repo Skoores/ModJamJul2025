@@ -50,7 +50,17 @@ namespace ModJamJul2025.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            //no bitches?
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.GalactaKnightTrophy>(), 10));
+
+            //LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+
+            //notExpertRule.OnSuccess(npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.BrokenLance>())));
+
+            //notExpertRule.OnSuccess(npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.BrokenLance>(), 9)));
+
+            //npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MinionBossBag>()));
+
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.GalactaKnightRelic>()));
         }
 
         public override void OnKill()
