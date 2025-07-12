@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xFDt96y40+E=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ModJamJul2025\\ModJamJul2025.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\prake\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

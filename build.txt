@@ -1,3 +1,4 @@
 displayName = Galacta Knight Boss
 author = Skoores
 version = 0.1
+modReferences = StructureHelper

@@ -1,2 +1,13 @@
-# This file will automatically update with entries for new content after a build and reload.
+Items: {
+	Placeable: {
+		GalacticRock: {
+			Tooltip: ""
+			DisplayName: Galactic Rock
+		}
 
+		GalacticCrystal: {
+			Tooltip: ""
+			DisplayName: Galactic Crystal
+		}
+	}
+}
