@@ -79,9 +79,72 @@ namespace ModJamJul2025.NPCs
             return true;
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            int startFrame = 1;
+            int endFrame = 1;
+
+            if (AIState == 1)
+            {
+                return;
+            }
+
+            if (AIState == 2f)
+            {
+                startFrame = 2;
+                endFrame = 4;
+            }
+
+            if (NPC.frame.Y < startFrame * frameHeight)
+            {
+                NPC.frame.Y = startFrame * frameHeight;
+            }
+
+            int frameSpeed = 3;
+
+            NPC.frameCounter += 1f;
+            if (NPC.frameCounter > frameSpeed)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+
+                if (NPC.frame.Y > endFrame * frameHeight)
+                {
+                    NPC.frame.Y = startFrame * frameHeight;
+                }
+            }
+        }
+
         public override void AI()
         {
-            
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
+            {
+                NPC.TargetClosest();
+            }
+
+            Player player = Main.player[NPC.target];
+
+            if (player.dead)
+            {
+                NPC.velocity.Y -= 0.04f;
+                NPC.EncourageDespawn(10);
+                return;
+            }
+
+            AIState = phasePick[rnd.Next(phasePick.Count)];
+
+            if (AIState == 1f)
+            {
+                floatMul(1);
+            }
+            else
+            {
+                floatMul(2);
+            }
+        }
+        private void floatMul(float f){
+            //Main.EntitySpriteDraw(GalactaKnightSide_Wings);
+            return;
         }
     }
 
