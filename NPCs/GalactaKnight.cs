@@ -16,6 +16,19 @@ namespace ModJamJul2025.NPCs
     [AutoloadBossHead]
     public class GalactaKnight : ModNPC
     {
+        private float AIState
+        {
+            get => NPC.ai[0];
+            set => NPC.ai[0] = value;
+        }
+
+        List<float> phasePick = new List<float>
+        {
+            1f, 1f, 1f, 2f
+        };
+
+        Random rnd = new Random();
+        
         public override void SetStaticDefaults()
         {
             NPCID.Sets.BossBestiaryPriority.Add(Type);
