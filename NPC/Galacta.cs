@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ModJamJul2025.NPC.Galacta
+namespace ModJamJul2025.NPCs.Galacta
 {
     [AutoloadBossHead]
     public class GalactaKnight : ModNPC
