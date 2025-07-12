@@ -9,5 +9,10 @@ Items: {
 			Tooltip: ""
 			DisplayName: Galactic Crystal
 		}
+
+		GalactaKnightTrophy: {
+			DisplayName: Galacta Knight Trophy
+			Tooltip: ""
+		}
 	}
 }
