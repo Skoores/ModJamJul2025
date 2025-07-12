@@ -22,4 +22,7 @@ Items: {
 	}
 }
 
-NPCs.GalactaKnight.DisplayName: Galacta Knight
+NPCs: {
+	GalactaKnight.DisplayName: Galacta Knight
+	GalactaKnightCrystal.DisplayName: Galacta Knight Crystal
+}
