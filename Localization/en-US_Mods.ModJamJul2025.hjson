@@ -31,3 +31,5 @@ NPCs: {
 	GalactaKnight.DisplayName: Galacta Knight
 	GalactaKnightCrystal.DisplayName: Galacta Knight Crystal
 }
+
+Projectiles.Boss.GalacticLaser.DisplayName: Galactic Laser
