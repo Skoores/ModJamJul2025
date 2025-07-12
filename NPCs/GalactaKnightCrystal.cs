@@ -37,6 +37,13 @@ namespace ModJamJul2025.NPCs
 
             NPC.aiStyle = 94;
         }
+
+        public override void OnKill()
+        {
+            int type = ModContent.NPCType<GalactaKnight>();
+
+            NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, type);
+        }
     }
 
 }
