@@ -1,9 +1,10 @@
-using ModJamJul2025.Systems;
 using Microsoft.Xna.Framework;
+using ModJamJul2025.Systems;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.CameraModifiers;
@@ -41,8 +42,11 @@ namespace ModJamJul2025.NPCs
         public override void OnKill()
         {
             int type = ModContent.NPCType<GalactaKnight>();
+            int spawnX = (int)NPC.position.X + (TextureAssets.Npc[NPC.type].Value.Width / 2);
+            int spawnY = (int)NPC.position.Y + (TextureAssets.Npc[NPC.type].Value.Height / 2);
 
-            NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, type);
+            NPC.NewNPC(NPC.GetSource_FromAI(), spawnX, spawnY, type);
+            //NPC.NewNPC(NPC.GetSource_FromAI(), TextureAssets.Npc[NPC.type].Value.Width / 2, TextureAssets.Npc[NPC.type].Value.Height / 2, type);
         }
     }
 

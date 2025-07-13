@@ -240,12 +240,12 @@ namespace ModJamJul2025.NPCs
                 case 11f:
                     break;
                 default:
-                    FlyFord(player);
+                    FlyForward(player);
                     break;
             }
         }
 
-        private void FlyFord(Player player)
+        private void FlyForward(Player player)
         {
             
                 float baseMovementSpeed = 10f;
@@ -324,8 +324,8 @@ namespace ModJamJul2025.NPCs
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            int frameHeight = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
             int frameWidth = TextureAssets.Npc[NPC.type].Value.Width;
+            int frameHeight = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
 
             Rectangle wingFrame = new Rectangle(0, currentWingFrameY, frameWidth, frameHeight);
             Vector2 origin = NPC.Size * 0.5f;
