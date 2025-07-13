@@ -236,11 +236,13 @@ namespace ModJamJul2025.NPCs
 
         private void FlyFord(Player player)
         {
-            float baseMovementSpeed = 10f;
-            float accelaration = 0.2f;
+            
+                float baseMovementSpeed = 10f;
+                float accelaration = 0.2f;
 
-            FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
-            return;
+                FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
+                return;
+            
         }
 
         private void FlyToTarget(Player player, float baseMovementSpeed, float accelaration, out float distancetoPlayer)
@@ -269,23 +271,46 @@ namespace ModJamJul2025.NPCs
             {
                 NPC.velocity.Y -= accelaration;
             }
-            Task.Delay(1);
             AITimer += 1;
+
+            if (Math.Abs(player.Center.X - NPC.Center.X) < 100 && Math.Abs(player.Center.Y - NPC.Center.Y) < 20f)
+            {
+                NPC.netUpdate = true;
+                LanceSlash(player);
+                AITimer = 0;
+                NPC.netUpdate = true;
+            }
+
+            AITimerMax += rnd.Next(7000, 13000);
+            if (AITimer >= AITimerMax)
+            {
+                NPC.netUpdate = true;
+                LanceSlash(player);
+                AITimer = 0;
+                NPC.netUpdate = true;
+                return;
+            }
         }
 
         private void LanceSlash(Player player)
         {
-            Vector2 curVel = NPC.velocity;
-            float deltaX = (player.Center.X - NPC.Center.X);
-            float deltaY = (player.Center.Y - NPC.Center.Y);
-            float distancetoPlayer = (float)Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
-            Vector2 velocity = new Vector2(deltaX, NPC.velocity.Y) * 100 / distancetoPlayer;
+            float baseSpeed = 8f;
+            if (Main.expertMode)
+            {
+                baseSpeed = 10;
+            }
 
-            NPC.velocity = velocity;
-            NPC.velocity = curVel;
-            AITimer = 0;
+            NPC.velocity *= 1.3f;
+
+
+            NPC.netUpdate = true;
+            if (NPC.netSpam > 10)
+            {
+                NPC.netSpam = 10;
+            }
+
+            NPC.velocity *= 0.8f;
         }
-
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             int frameHeight = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
