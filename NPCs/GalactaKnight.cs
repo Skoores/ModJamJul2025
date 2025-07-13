@@ -1,9 +1,12 @@
-using ModJamJul2025.Systems;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ModJamJul2025.Systems;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.CameraModifiers;
@@ -16,6 +19,15 @@ namespace ModJamJul2025.NPCs
     [AutoloadBossHead]
     public class GalactaKnight : ModNPC
     {
+        //public override string Texture => "ModJamJul2025/NPCs/GalactaKnightSide";
+
+        public static Asset<Texture2D> frontWings, sideWings, currentWings;
+
+        public static readonly SoundStyle hitSound = new("ModJamJul2025/SFX/GalactaKnightHit");
+        public static readonly SoundStyle deathSound = new("ModJamJul2025/SFX/GalactaKnightDeath");
+
+        public int currentWingFrame, currentWingFrameY;
+
         private float AIState
         {
             get => NPC.ai[0];
@@ -31,19 +43,26 @@ namespace ModJamJul2025.NPCs
         
         public override void SetStaticDefaults()
         {
+            Main.npcFrameCount[Type] = 12;
+
             NPCID.Sets.BossBestiaryPriority.Add(Type);
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+
+            if (!Main.dedServ)
+            {
+                sideWings = ModContent.Request<Texture2D>("ModJamJul2025/NPCs/GalactaKnightSide_Wings", AssetRequestMode.AsyncLoad);
+            }
         }
 
         public override void SetDefaults()
         {
             NPC.width = 60;
-            NPC.height = 76;
+            NPC.height = 60;
             NPC.damage = 12;
             NPC.defense = 100;
             NPC.lifeMax = 150000;
-            NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.HitSound = hitSound;
+            NPC.DeathSound = deathSound;
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
@@ -94,19 +113,21 @@ namespace ModJamJul2025.NPCs
 
         public override void FindFrame(int frameHeight)
         {
-            int startFrame = 1;
-            int endFrame = 1;
+            int startFrame = 0;
+            int endFrame = 0;
 
-            if (AIState == 1)
-            {
-                return;
-            }
+            //if (AIState == 1)
+            //{
+            //    return;
+            //}
 
-            if (AIState == 2f)
-            {
-                startFrame = 2;
-                endFrame = 4;
-            }
+            //if (AIState == 2f)
+            //{
+            //    startFrame = 2;
+            //    endFrame = 4;
+
+            //    //currentWings = sideWings;
+            //}
 
             if (NPC.frame.Y < startFrame * frameHeight)
             {
@@ -115,7 +136,7 @@ namespace ModJamJul2025.NPCs
 
             int frameSpeed = 3;
 
-            NPC.frameCounter += 1f;
+            NPC.frameCounter += 1;
             if (NPC.frameCounter > frameSpeed)
             {
                 NPC.frameCounter = 0;
@@ -124,6 +145,29 @@ namespace ModJamJul2025.NPCs
                 if (NPC.frame.Y > endFrame * frameHeight)
                 {
                     NPC.frame.Y = startFrame * frameHeight;
+                }
+            }
+
+            // wing animation
+            int wingFrameHeight = 164;
+
+            int wingStartFrame = 0;
+            int wingEndFrame = 1;
+
+            if (currentWingFrameY < startFrame * frameHeight)
+            {
+                currentWingFrameY = startFrame * frameHeight;
+            }
+
+            currentWingFrame += 1;
+            if (currentWingFrame > frameSpeed)
+            {
+                currentWingFrame = 0;
+                currentWingFrameY += wingFrameHeight;
+
+                if (currentWingFrameY > wingEndFrame * wingFrameHeight)
+                {
+                    currentWingFrameY = wingStartFrame * wingFrameHeight;
                 }
             }
         }
@@ -146,19 +190,33 @@ namespace ModJamJul2025.NPCs
 
             AIState = phasePick[rnd.Next(phasePick.Count)];
 
-            if (AIState == 1f)
-            {
-                floatMul(1);
-            }
-            else
-            {
-                floatMul(2);
-            }
+            //if (AIState == 1f)
+            //{
+            //    DrawWings(1);
+            //}
+            //else
+            //{
+            //    DrawWings(2);
+            //}
         }
-        private void floatMul(float f){
-            //Main.EntitySpriteDraw(GalactaKnightSide_Wings);
-            return;
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            int frameHeight = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
+            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width;
+
+            Rectangle wingFrame = new Rectangle(0, currentWingFrameY, frameWidth, frameHeight);
+            Vector2 origin = NPC.Size * 0.5f;
+            Vector2 center = NPC.Center - screenPos;
+
+            Vector2 halfSizeTexture = new Vector2((TextureAssets.Npc[NPC.type].Value.Width / 2) + 10, (frameHeight / 2) + 4);
+
+            Texture2D bossTexture = TextureAssets.Npc[NPC.type].Value;
+
+            spriteBatch.Draw(sideWings.Value, center, wingFrame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(bossTexture, center, NPC.frame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, SpriteEffects.None, 0f);
+
+            return false;
         }
     }
-
 }
