@@ -213,8 +213,8 @@ namespace ModJamJul2025.NPCs
             //{
             //}
 
-            phasePick = [1f, 1f, 7f];
-            AIState = phasePick[rnd.Next(phasePick.Count)];
+            AIState = 1f;
+            
             AITimer = 0;
             switch (AIState)
             {
@@ -236,14 +236,10 @@ namespace ModJamJul2025.NPCs
 
         private void FlyFord(Player player)
         {
-            float baseMovementSpeed = 5f;
-            float accelaration = 0.04f;
+            float baseMovementSpeed = 10f;
+            float accelaration = 0.2f;
 
-            //(Math.Abs(NPC.Center.X - player.Center.X) < 20) ||
-            while (AITimer < 5)
-            {
-                FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
-            }
+            FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
             return;
         }
 
@@ -273,27 +269,21 @@ namespace ModJamJul2025.NPCs
             {
                 NPC.velocity.Y -= accelaration;
             }
-
+            Task.Delay(1);
             AITimer += 1;
         }
 
         private void LanceSlash(Player player)
         {
-            NPC.velocity.X = 0;
+            Vector2 curVel = NPC.velocity;
+            float deltaX = (player.Center.X - NPC.Center.X);
+            float deltaY = (player.Center.Y - NPC.Center.Y);
+            float distancetoPlayer = (float)Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+            Vector2 velocity = new Vector2(deltaX, NPC.velocity.Y) * 100 / distancetoPlayer;
 
-            Task.Delay(500);
-
-            if (player.Center.X < NPC.Center.X)
-            {
-                NPC.velocity.X += 300;
-            }
-            else if (player.Center.X > NPC.Center.X)
-            {
-                NPC.velocity.X -= 300;
-            }
-            
-            Task.Delay(100);
-            NPC.velocity.X = 10;
+            NPC.velocity = velocity;
+            NPC.velocity = curVel;
+            AITimer = 0;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
