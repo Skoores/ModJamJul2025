@@ -188,16 +188,112 @@ namespace ModJamJul2025.NPCs
                 return;
             }
 
-            AIState = phasePick[rnd.Next(phasePick.Count)];
+            //phasePick = [1f, 1f, 1f, 1f, 1f, 1f, 5f, 5f, 5f, 9f, 9f, 11f];
 
-            //if (AIState == 1f)
+            /*if (Math.Abs(NPC.Center.X - player.Center.X) < 20)
+            {
+                phasePick = [9f];
+                if (NPC.Center.Y - player.Center.Y > 10)
+                {
+                    phasePick.Add(7f);
+                    phasePick.Add(7f);
+                    phasePick.Add(7f);
+                }
+                else
+                {
+                    phasePick.Add(2f);
+                    phasePick.Add(2f);
+                    phasePick.Add(2f);
+                }
+            }
+
+            AIState = phasePick[rnd.Next(phasePick.Count)];*/
+
+            //if (NPC.lifeMax / 2 > NPC.life)
             //{
-            //    DrawWings(1);
             //}
-            //else
-            //{
-            //    DrawWings(2);
-            //}
+
+            phasePick = [1f, 1f, 7f];
+            AIState = phasePick[rnd.Next(phasePick.Count)];
+            AITimer = 0;
+            switch (AIState)
+            {
+                case 2f:
+                    
+                    break;
+                case 5f:
+                    break;
+                case 7f:
+                    LanceSlash(player);
+                    break;
+                case 11f:
+                    break;
+                default:
+                    FlyFord(player);
+                    break;
+            }
+        }
+
+        private void FlyFord(Player player)
+        {
+            float baseMovementSpeed = 5f;
+            float accelaration = 0.04f;
+
+            //(Math.Abs(NPC.Center.X - player.Center.X) < 20) ||
+            while (AITimer < 5)
+            {
+                FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
+            }
+            return;
+        }
+
+        private void FlyToTarget(Player player, float baseMovementSpeed, float accelaration, out float distancetoPlayer)
+        {
+            distancetoPlayer = Vector2.Distance(NPC.Center, player.Center);
+
+            float movementSpeed = baseMovementSpeed / distancetoPlayer;
+
+            float targetVelocityX = (player.Center.X - NPC.Center.X) * movementSpeed;
+            float targetVelocityY = (player.Center.Y - NPC.Center.Y) * movementSpeed;
+
+
+            if (NPC.velocity.X < targetVelocityX)
+            {
+                NPC.velocity.X += accelaration;
+            }
+            else if (NPC.velocity.X > targetVelocityX)
+            {
+                NPC.velocity.X -= accelaration;
+            }
+            if (NPC.velocity.Y < targetVelocityY)
+            {
+                NPC.velocity.Y += accelaration;
+            }
+            else if (NPC.velocity.Y > targetVelocityY)
+            {
+                NPC.velocity.Y -= accelaration;
+            }
+
+            AITimer += 1;
+        }
+
+        private void LanceSlash(Player player)
+        {
+            NPC.velocity.X = 0;
+
+            Task.Delay(500);
+
+            if (player.Center.X < NPC.Center.X)
+            {
+                NPC.velocity.X += 300;
+            }
+            else if (player.Center.X > NPC.Center.X)
+            {
+                NPC.velocity.X -= 300;
+            }
+            
+            Task.Delay(100);
+            NPC.velocity.X = 10;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
