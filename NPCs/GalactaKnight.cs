@@ -34,6 +34,17 @@ namespace ModJamJul2025.NPCs
             set => NPC.ai[0] = value;
         }
 
+        private float AITimer
+        {
+            get => NPC.ai[1];
+            set => NPC.ai[1] = value;
+        }
+        private float AITimerMax
+        {
+            get => NPC.ai[2];
+            set => NPC.ai[2] = value;
+        }
+
         List<float> phasePick = new List<float>
         {
             1f, 1f, 1f, 2f
