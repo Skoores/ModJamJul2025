@@ -1,3 +1,9 @@
-Galacta Knight.
+Adds Galacta Knight from the hit series Kirby as a boss. (July 2025 Modjam submission)
 
-(July 2025 Modjam submission.)
+He can be found encased in crystal in a custom arena above spawn. Breaking the crystal initiates the fight. 
+
+Due to limited dev time, and this being our first attempt at a modded boss, the AI is admittedly really basic and not up to standard by any metric. However, we do have plans to continue development to fully flesh it out.
+
+Credits:
+- Skoores: Spriting, coding
+- Gepapa363: Coding

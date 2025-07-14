@@ -1,9 +1,11 @@
 using Microsoft.Xna.Framework;
 using ModJamJul2025.Systems;
+using ModJamJul2025.Tiles;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -14,6 +16,7 @@ using Terraria.ModLoader;
 
 namespace ModJamJul2025.NPCs
 {
+    //[AutoloadBossHead]
     public class GalactaKnightCrystal : ModNPC
     {
         public override void SetStaticDefaults()
@@ -39,9 +42,19 @@ namespace ModJamJul2025.NPCs
             NPC.aiStyle = 94;
         }
 
+        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+        {
+            return false;
+        }
+
         public override bool CheckActive()
         {
             return false;
+        }
+
+        public static bool CanSave()
+        {
+            return true;
         }
 
         public override void OnKill()
@@ -52,16 +65,5 @@ namespace ModJamJul2025.NPCs
 
             NPC.NewNPC(NPC.GetSource_FromAI(), spawnX, spawnY, type);
         }
-
-        //public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        //{
-
-        //    if (spawnInfo.SpawnTileType == ModContent.TileType<Tiles.GalacticRockTile>() && !NPC.AnyNPCs(Type))
-        //    {
-        //        return 1f;
-        //    }
-        //    return 0f;
-        //}
     }
-
 }

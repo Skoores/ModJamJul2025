@@ -1,3 +1,5 @@
+using ModJamJul2025.NPCs;
+using ModJamJul2025.Tiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace ModJamJul2025
+namespace ModJamJul2025.Systems
 {
     public class ArenaGen : ModSystem
     {
@@ -39,6 +41,21 @@ namespace ModJamJul2025
 
             Mod mod = ModJamJul2025.Instance;
             StructureHelper.API.Generator.GenerateStructure("Structures/GalacticArena", new Point16(Main.spawnTileX - 100, 100), mod);
+
+            for (int i = 0; i < Main.maxTilesX; i++)
+            {
+                for (int j = 0; j < Main.maxTilesY; j++)
+                {
+                    //int spawnX = (i + 1);
+                    //int spawnY = j;
+
+                    if (Main.tile[i, j].HasTile && Main.tile[i, j].TileType == ModContent.TileType<GalacticAltarTile>())
+                    {
+                        ModContent.GetInstance<AltarTileEntity>().Place(i, j);
+                        return;
+                    }
+                }
+            }
         }
     }
 }

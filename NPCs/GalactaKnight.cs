@@ -342,20 +342,27 @@ namespace ModJamJul2025.NPCs
             Vector2 origin = NPC.Size * 0.5f;
             Vector2 center = NPC.Center - screenPos;
 
-            Vector2 halfSizeTexture = new Vector2((TextureAssets.Npc[NPC.type].Value.Width / 2) + 10, (frameHeight / 2) + 4);
+            Vector2 halfSizeTextureLeft = new Vector2((TextureAssets.Npc[NPC.type].Value.Width / 2) + 10, (frameHeight / 2) + 4);
+            Vector2 halfSizeTextureRight = new Vector2((TextureAssets.Npc[NPC.type].Value.Width / 2) - 10, (frameHeight / 2) + 4);
+            Vector2 chosenOrigin;
 
             Texture2D bossTexture = TextureAssets.Npc[NPC.type].Value;
 
             SpriteEffects spriteDirection;
-
-            if (NPC.spriteDirection == 1)
+            
+            if (NPC.spriteDirection == 1) // Facing right
+            {
                 spriteDirection = SpriteEffects.FlipHorizontally;
-            else
+                chosenOrigin = halfSizeTextureRight;
+            }
+            else // Facing left
+            {
                 spriteDirection = SpriteEffects.None;
+                chosenOrigin = halfSizeTextureLeft;
+            }
 
-            spriteBatch.Draw(sideWings.Value, center, wingFrame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, spriteDirection, 0f);
-            spriteBatch.Draw(bossTexture, center, NPC.frame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, spriteDirection, 0f);
-
+            spriteBatch.Draw(sideWings.Value, center, wingFrame, drawColor, NPC.rotation, chosenOrigin, NPC.scale, spriteDirection, 0f);
+            spriteBatch.Draw(bossTexture, center, NPC.frame, drawColor, NPC.rotation, chosenOrigin, NPC.scale, spriteDirection, 0f);
             return false;
         }
     }

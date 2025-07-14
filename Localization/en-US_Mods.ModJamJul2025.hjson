@@ -25,6 +25,11 @@ Items: {
 			Tooltip: ""
 		}
 	}
+
+	SpawnCrystal: {
+		Tooltip: ""
+		DisplayName: Spawn Crystal
+	}
 }
 
 NPCs: {
