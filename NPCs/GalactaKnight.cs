@@ -27,6 +27,7 @@ namespace ModJamJul2025.NPCs
         public static readonly SoundStyle deathSound = new("ModJamJul2025/SFX/GalactaKnightDeath");
 
         public int currentWingFrame, currentWingFrameY;
+
         public bool shouldFacePlayer;
 
         private float AIState
@@ -345,8 +346,15 @@ namespace ModJamJul2025.NPCs
 
             Texture2D bossTexture = TextureAssets.Npc[NPC.type].Value;
 
-            spriteBatch.Draw(sideWings.Value, center, wingFrame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, SpriteEffects.None, 0f);
-            spriteBatch.Draw(bossTexture, center, NPC.frame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, SpriteEffects.None, 0f);
+            SpriteEffects spriteDirection;
+
+            if (NPC.spriteDirection == 1)
+                spriteDirection = SpriteEffects.FlipHorizontally;
+            else
+                spriteDirection = SpriteEffects.None;
+
+            spriteBatch.Draw(sideWings.Value, center, wingFrame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, spriteDirection, 0f);
+            spriteBatch.Draw(bossTexture, center, NPC.frame, drawColor, NPC.rotation, halfSizeTexture, NPC.scale, spriteDirection, 0f);
 
             return false;
         }
