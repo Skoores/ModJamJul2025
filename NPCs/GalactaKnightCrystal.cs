@@ -47,6 +47,16 @@ namespace ModJamJul2025.NPCs
 
             NPC.NewNPC(NPC.GetSource_FromAI(), spawnX, spawnY, type);
         }
+
+        //public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        //{
+
+        //    if (spawnInfo.SpawnTileType == ModContent.TileType<Tiles.GalacticRockTile>() && !NPC.AnyNPCs(Type))
+        //    {
+        //        return 1f;
+        //    }
+        //    return 0f;
+        //}
     }
 
 }
