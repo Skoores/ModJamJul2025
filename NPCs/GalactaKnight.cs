@@ -129,18 +129,20 @@ namespace ModJamJul2025.NPCs
             int startFrame = 0;
             int endFrame = 0;
 
-            //if (AIState == 1)
-            //{
-            //    return;
-            //}
+            AIState = 2;
 
-            //if (AIState == 2f)
-            //{
-            //    startFrame = 2;
-            //    endFrame = 4;
+            if (AIState == 1)
+            {
+                return;
+            }
 
-            //    //currentWings = sideWings;
-            //}
+            if (AIState == 2)
+            {
+                startFrame = 2;
+                endFrame = 4;
+
+                //currentWings = sideWings;
+            }
 
             if (NPC.frame.Y < startFrame * frameHeight)
             {
@@ -167,9 +169,9 @@ namespace ModJamJul2025.NPCs
             int wingStartFrame = 0;
             int wingEndFrame = 1;
 
-            if (currentWingFrameY < startFrame * frameHeight)
+            if (currentWingFrameY < wingStartFrame * frameHeight)
             {
-                currentWingFrameY = startFrame * frameHeight;
+                currentWingFrameY = wingStartFrame * frameHeight;
             }
 
             currentWingFrame += 1;
