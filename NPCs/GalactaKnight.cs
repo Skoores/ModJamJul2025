@@ -27,6 +27,7 @@ namespace ModJamJul2025.NPCs
         public static readonly SoundStyle deathSound = new("ModJamJul2025/SFX/GalactaKnightDeath");
 
         public int currentWingFrame, currentWingFrameY;
+        public bool shouldFacePlayer;
 
         private float AIState
         {
@@ -199,6 +200,17 @@ namespace ModJamJul2025.NPCs
                 return;
             }
 
+            shouldFacePlayer = true;
+
+            // Face player
+            if (shouldFacePlayer)
+            {
+                int facePlayerDirection = Math.Sign(player.Center.X - NPC.Center.X);
+                if (facePlayerDirection != 0)
+                    NPC.direction = NPC.spriteDirection = facePlayerDirection;
+            }
+            
+
             //phasePick = [1f, 1f, 1f, 1f, 1f, 1f, 5f, 5f, 5f, 9f, 9f, 11f];
 
             /*if (Math.Abs(NPC.Center.X - player.Center.X) < 20)
@@ -247,13 +259,11 @@ namespace ModJamJul2025.NPCs
 
         private void FlyForward(Player player)
         {
-            
-                float baseMovementSpeed = 10f;
-                float accelaration = 0.2f;
+            float baseMovementSpeed = 10f;
+            float accelaration = 0.2f;
 
-                FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
-                return;
-            
+            FlyToTarget(player, baseMovementSpeed, accelaration, out float distancetoPlayer);
+            return;
         }
 
         private void FlyToTarget(Player player, float baseMovementSpeed, float accelaration, out float distancetoPlayer)

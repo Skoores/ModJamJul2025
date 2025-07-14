@@ -46,7 +46,6 @@ namespace ModJamJul2025.NPCs
             int spawnY = (int)NPC.position.Y + (TextureAssets.Npc[NPC.type].Value.Height / 2);
 
             NPC.NewNPC(NPC.GetSource_FromAI(), spawnX, spawnY, type);
-            //NPC.NewNPC(NPC.GetSource_FromAI(), TextureAssets.Npc[NPC.type].Value.Width / 2, TextureAssets.Npc[NPC.type].Value.Height / 2, type);
         }
     }
 

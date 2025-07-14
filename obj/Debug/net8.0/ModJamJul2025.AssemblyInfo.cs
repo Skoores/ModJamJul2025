@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ModJamJul2025")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ab7f63f823064ad7e8e33420ffd43c796393675")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ac1daec7078b9291977d18663719b0a6f9d81d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ModJamJul2025")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ModJamJul2025")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
