@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ModJamJul2025.Tiles;
+using KirbyMod.Tiles;
 
-namespace ModJamJul2025
+namespace KirbyMod
 {
     public class ChangeToMurkstone : ModCommand
     {
@@ -54,7 +54,7 @@ namespace ModJamJul2025
 
         public override void Action(CommandCaller caller, string input, string[] args)
         {
-            Mod structureHelper = ModJamJul2025.Instance.structureHelper;
+            Mod structureHelper = KirbyMod.Instance.structureHelper;
             structureHelper.TryFind("NullBlock", out ModTile nullBlock);
             structureHelper.TryFind("NullWall", out ModWall nullWall);
 
@@ -97,7 +97,7 @@ namespace ModJamJul2025
 
         public override void Action(CommandCaller caller, string input, string[] args)
         {
-            Mod structureHelper = ModJamJul2025.Instance.structureHelper;
+            Mod structureHelper = KirbyMod.Instance.structureHelper;
             structureHelper.TryFind("NullBlock", out ModTile nullBlock);
             structureHelper.TryFind("NullWall", out ModWall nullWall);
 

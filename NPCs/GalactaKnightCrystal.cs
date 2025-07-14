@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
-using ModJamJul2025.Systems;
-using ModJamJul2025.Tiles;
+using KirbyMod.Systems;
+using KirbyMod.Tiles;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -14,7 +14,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ModJamJul2025.NPCs
+namespace KirbyMod.NPCs
 {
     //[AutoloadBossHead]
     public class GalactaKnightCrystal : ModNPC

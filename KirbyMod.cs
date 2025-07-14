@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
 
-namespace ModJamJul2025
+namespace KirbyMod
 {
-	public class ModJamJul2025 : Mod
+	public class KirbyMod : Mod
 	{
-        internal static ModJamJul2025 Instance;
+        internal static KirbyMod Instance;
         internal static Mod mod;
 
         internal Mod structureHelper = null;

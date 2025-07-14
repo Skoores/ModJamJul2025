@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ModJamJul2025.NPCs;
+using KirbyMod.NPCs;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModJamJul2025.Projectiles
+namespace KirbyMod.Projectiles
 {
 	public class GalacticLaser : ModProjectile, ILocalizedModType
     {
@@ -134,8 +134,8 @@ namespace ModJamJul2025.Projectiles
                 return false;
 
             Texture2D laserStart = ModContent.Request<Texture2D>(Texture, AssetRequestMode.ImmediateLoad).Value;
-            Texture2D laserMid = ModContent.Request<Texture2D>("ModJamJul2025/Projectiles/GalacticLaserMid", AssetRequestMode.ImmediateLoad).Value;
-            Texture2D laserEnd = ModContent.Request<Texture2D>("ModJamJul2025/Projectiles/GalacticLaserEnd", AssetRequestMode.ImmediateLoad).Value;
+            Texture2D laserMid = ModContent.Request<Texture2D>("KirbyMod/Projectiles/GalacticLaserMid", AssetRequestMode.ImmediateLoad).Value;
+            Texture2D laserEnd = ModContent.Request<Texture2D>("KirbyMod/Projectiles/GalacticLaserEnd", AssetRequestMode.ImmediateLoad).Value;
 
             float rayDrawLength = Projectile.localAI[1]; //length of laser
             Color baseColor = Color.White;

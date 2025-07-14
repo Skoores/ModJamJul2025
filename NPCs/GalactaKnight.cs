@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ModJamJul2025.Systems;
+using KirbyMod.Systems;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
@@ -14,17 +14,17 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ModJamJul2025.NPCs
+namespace KirbyMod.NPCs
 {
     [AutoloadBossHead]
     public class GalactaKnight : ModNPC
     {
-        //public override string Texture => "ModJamJul2025/NPCs/GalactaKnightSide";
+        //public override string Texture => "KirbyMod/NPCs/GalactaKnightSide";
 
         public static Asset<Texture2D> frontWings, sideWings, currentWings;
 
-        public static readonly SoundStyle hitSound = new("ModJamJul2025/SFX/GalactaKnightHit");
-        public static readonly SoundStyle deathSound = new("ModJamJul2025/SFX/GalactaKnightDeath");
+        public static readonly SoundStyle hitSound = new("KirbyMod/SFX/GalactaKnightHit");
+        public static readonly SoundStyle deathSound = new("KirbyMod/SFX/GalactaKnightDeath");
 
         public int currentWingFrame, currentWingFrameY;
 
@@ -63,7 +63,7 @@ namespace ModJamJul2025.NPCs
 
             if (!Main.dedServ)
             {
-                sideWings = ModContent.Request<Texture2D>("ModJamJul2025/NPCs/GalactaKnightSide_Wings", AssetRequestMode.AsyncLoad);
+                sideWings = ModContent.Request<Texture2D>("KirbyMod/NPCs/GalactaKnightSide_Wings", AssetRequestMode.AsyncLoad);
             }
         }
 

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModJamJul2025.Tiles
+namespace KirbyMod.Tiles
 {
     public abstract class GalacticTile : ModTile
     {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ModJamJul2025\\ModJamJul2025.csproj": {}
+    "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\KirbyMod\\KirbyMod.csproj": {}
   },
   "projects": {
-    "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ModJamJul2025\\ModJamJul2025.csproj": {
+    "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\KirbyMod\\KirbyMod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ModJamJul2025\\ModJamJul2025.csproj",
-        "projectName": "ModJamJul2025",
-        "projectPath": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ModJamJul2025\\ModJamJul2025.csproj",
+        "projectUniqueName": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\KirbyMod\\KirbyMod.csproj",
+        "projectName": "KirbyMod",
+        "projectPath": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\KirbyMod\\KirbyMod.csproj",
         "packagesPath": "C:\\Users\\prake\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ModJamJul2025\\obj\\",
+        "outputPath": "C:\\Users\\prake\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\KirbyMod\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

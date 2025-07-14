@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using ModJamJul2025.NPCs;
+using KirbyMod.NPCs;
 using System;
 using System.IO;
 using Terraria;
@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.ObjectData;
 
-namespace ModJamJul2025.Tiles
+namespace KirbyMod.Tiles
 {
     public class GalacticAltarTile : ModTile
     {

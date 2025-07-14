@@ -10,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ModJamJul2025.Tiles
+namespace KirbyMod.Tiles
 {
     public class GalactaKnightRelicTile : ModTile
     {
@@ -20,8 +20,8 @@ namespace ModJamJul2025.Tiles
         public const int VerticalFrames = 1;
 
         public Asset<Texture2D> RelicTexture;
-        public virtual string RelicTextureName => "ModJamJul2025/Tiles/GalactaKnightRelicIcon";
-        public override string Texture => "ModJamJul2025/Tiles/RelicPedestal";
+        public virtual string RelicTextureName => "KirbyMod/Tiles/GalactaKnightRelicIcon";
+        public override string Texture => "KirbyMod/Tiles/RelicPedestal";
 
         public override void Load()
         {

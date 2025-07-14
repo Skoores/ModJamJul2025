@@ -1,9 +1,9 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ModJamJul2025.Tiles;
+using KirbyMod.Tiles;
 
-namespace ModJamJul2025.Items
+namespace KirbyMod.Items
 {
     public abstract class GalacticBlock : ModItem, ILocalizedModType
     {

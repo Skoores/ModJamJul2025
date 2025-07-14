@@ -1,5 +1,5 @@
-using ModJamJul2025.NPCs;
-using ModJamJul2025.Tiles;
+using KirbyMod.NPCs;
+using KirbyMod.Tiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace ModJamJul2025.Systems
+namespace KirbyMod.Systems
 {
     public class ArenaGen : ModSystem
     {
@@ -39,7 +39,7 @@ namespace ModJamJul2025.Systems
             // Progress message    
             progress.Message = "Generating Arena";
 
-            Mod mod = ModJamJul2025.Instance;
+            Mod mod = KirbyMod.Instance;
             StructureHelper.API.Generator.GenerateStructure("Structures/GalacticArena", new Point16(Main.spawnTileX - 100, 100), mod);
 
             for (int i = 0; i < Main.maxTilesX; i++)

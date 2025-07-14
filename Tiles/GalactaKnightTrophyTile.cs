@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ModJamJul2025.Tiles
+namespace KirbyMod.Tiles
 {
     public class GalactaKnightTrophyTile : ModTile
     {

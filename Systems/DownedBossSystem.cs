@@ -1,5 +1,5 @@
-﻿using ModJamJul2025.NPCs;
-using ModJamJul2025.Tiles;
+﻿using KirbyMod.NPCs;
+using KirbyMod.Tiles;
 using System;
 using System.Collections;
 using System.IO;
@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Microsoft.Xna.Framework;
 
-namespace ModJamJul2025.Systems
+namespace KirbyMod.Systems
 {
     public class DownedBossSystem : ModSystem
     {
