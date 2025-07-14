@@ -39,6 +39,11 @@ namespace ModJamJul2025.NPCs
             NPC.aiStyle = 94;
         }
 
+        public override bool CheckActive()
+        {
+            return false;
+        }
+
         public override void OnKill()
         {
             int type = ModContent.NPCType<GalactaKnight>();
