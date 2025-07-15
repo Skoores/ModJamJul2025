@@ -29,7 +29,6 @@ namespace KirbyMod.NPCs
         {
             NPC.width = 100;
             NPC.height = 150;
-            NPC.damage = 12;
             NPC.defense = 100;
             NPC.lifeMax = 10000;
             NPC.HitSound = SoundID.NPCHit5;
@@ -40,11 +39,6 @@ namespace KirbyMod.NPCs
             NPC.SpawnWithHigherTime(30);
 
             NPC.aiStyle = 94;
-        }
-
-        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
-        {
-            return false;
         }
 
         public override bool CheckActive()

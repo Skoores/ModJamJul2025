@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KirbyMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c67f40d470bd03fe7dfd474461df1571c22188d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54ec2b8c9b9829c9a924aa058ffa217a1aa7407a")]
 [assembly: System.Reflection.AssemblyProductAttribute("KirbyMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KirbyMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
